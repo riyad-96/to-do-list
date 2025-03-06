@@ -1,0 +1,333 @@
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts/roboto-v47-latin-600.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts/roboto-v47-latin-500.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts/roboto-v47-latin-400.woff2") format("woff2");
+  font-weight: 400;
+}
+
+:root {
+  --body-bg: hsl(240, 2%, 89%);
+  --todo-bg: hsl(200, 4%, 85%);
+  --font-clr: hsl(0, 0%, 15%);
+  --h1-clr: hsl(225, 6%, 27%);
+  --btn-bg: hsl(0, 0%, 77%);
+  --btn-hover-bg: hsl(0, 0%, 74%);
+  --li-bg: hsl(200, 4%, 88%);
+  --dlt-btn-hover: hsl(0, 0%, 83%);
+  --title-border-clr: hsl(0, 0%, 80%);
+
+  --selction-bg: hsl(240, 2%, 11%);
+  --selction-text: hsl(240, 2%, 89%);
+
+  --message-bg: hsl(0, 0%, 78%);
+  --message-txt-clr: hsl(0, 0%, 11%);
+  --message-border-clr: hsl(0, 0%, 58%);
+}
+.dark {
+  --body-bg: hsl(240, 2%, 11%);
+  --todo-bg: hsl(200, 4%, 13%);
+  --font-clr: hsl(0, 0%, 85%);
+  --h1-clr: hsl(225, 6%, 73%);
+  --btn-bg: hsl(0, 0%, 23%);
+  --btn-hover-bg: hsl(0, 0%, 26%);
+  --li-bg: hsl(200, 4%, 16%);
+  --dlt-btn-hover: hsl(0, 0%, 17%);
+  --title-border-clr: hsl(0, 0%, 17%);
+
+  --selction-bg: hsl(240, 2%, 89%);
+  --selction-text: hsl(240, 2%, 11%);
+
+  --message-bg: hsl(0, 0%, 22%);
+  --message-txt-clr: hsl(0, 0%, 89%);
+  --message-border-clr: hsl(0, 0%, 42%);
+}
+
+::selection{
+  color: var(--selction-text);
+  background-color: var(--selction-bg);
+}
+
+body {
+  font-family: Roboto;
+  background-color: var(--body-bg);
+  color: var(--font-clr);
+  margin: 0;
+  padding-inline: 1.5rem;
+  box-sizing: border-box;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  transition: 150ms;
+}
+
+
+/* ! ----- CSS formats ----- */
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0;
+  background-color: transparent;
+  color: var(--font-clr);
+  cursor: pointer;
+  border: none;
+  font-family: Roboto;
+  transition: 150ms;
+}
+
+#toggleThemeBtn{
+  background-color: var(--btn-bg);
+  padding-inline: 1rem;
+  padding-block: 0.4rem;
+  font-family: Roboto;
+  font-weight: 600;
+  font-size: 1rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 0.5rem;
+  transition: 150ms;
+  box-shadow: 0 2px 10px -4px rgba(0, 0, 0, 0.267);
+}
+
+/* ! ----- Main content Styling ----- */
+h1 {
+  color: var(--h1-clr);
+  text-align: center;
+  font-size: 2.5rem;
+  margin-block: 4rem;
+  transition: 150ms;
+}
+
+p {
+  text-align: center;
+  transition: 150ms;
+
+  code {
+    background-color: var(--todo-bg);
+    font-size: 1rem;
+    padding-block: 3px;
+    padding-inline: 3px;
+    border-radius: 0.4rem;
+    transition: 150ms;
+  }
+}
+
+.terms-info {
+  font-weight: 400;
+  max-inline-size: 50ch;
+  margin-inline: auto;
+  font-size: 0.8rem;
+  margin-block-start: 3rem;
+}
+
+.wrapper {
+  max-inline-size: 600px;
+  margin-inline: auto;
+  background-color: var(--todo-bg);
+  box-sizing: border-box;
+  padding-block: 2rem;
+  padding-inline: 1.5rem;
+  border-radius: 1rem;
+  transition: 150ms;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.342);
+}
+
+.todo-title {
+  font-size: 1.3rem;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  text-align: center;
+  border: 1px solid var(--title-border-clr);
+  border-radius: 0.5rem;
+  transition: 150ms;
+}
+
+.todo-title::before {
+  content: attr(aria-label);
+  color: hsl(0, 0%, 60%);
+  pointer-events: none;
+  transition: 150ms;
+}
+
+.todo-title.has-content::before{
+  display: none;
+}
+
+.input-add-section {
+  display: flex;
+  box-sizing: border-box;
+  margin-block: 1rem;
+  transition: 150ms;
+
+  input {
+    flex-grow: 1;
+    background-color: transparent;
+    color: var(--font-clr);
+    border: 1px solid var(--btn-bg);
+    padding-inline: 1rem;
+    padding-block: 0.6rem;
+    font-size: 1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+    min-inline-size: 0;
+    font-family: Roboto;
+    font-weight: 500;
+    transition: 150ms;
+  }
+
+  button {
+    background-color: var(--btn-bg);
+    font-size: 1.5rem;
+    padding-inline: 2rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    box-shadow: 0 2px 10px -7px rgba(0, 0, 0, 0.267);
+
+
+    &:hover {
+      background-color: var(--btn-hover-bg);
+    }
+  }
+
+  @media(width < 450px) {
+    button {
+      padding-inline: 1rem;
+    }
+
+    input {
+      max-inline-size: 100%;
+    }
+  }
+}
+
+
+.delete-selected-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 150ms;
+
+  button {
+    background-color: var(--btn-bg);
+    font-size: 1rem;
+    font-weight: 500;
+    padding-block: 0.4rem;
+    padding-inline: 0.8rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px -7px rgba(0, 0, 0, 0.267);
+
+    &:hover {
+      background-color: var(--btn-hover-bg);
+    }
+  }
+}
+
+
+.task-ul li {
+  padding-block: 0.5rem;
+  margin-block: 0.5rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--li-bg);
+  padding-inline: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  transition: 150ms;
+  box-shadow: 0 2px 10px -7px rgba(0, 0, 0, 0.267);
+
+  input {
+    accent-color: rgb(73, 73, 73);
+    block-size: 1rem;
+    inline-size: 1rem;
+    cursor: pointer;
+    transition: 150ms;
+  }
+
+  button {
+    padding-block: 0.4rem;
+    padding-inline: 0.45rem;
+    border-radius: 50%;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: var(--dlt-btn-hover);
+    }
+  }
+
+  i{
+  transition: 150ms;
+  }
+
+  button:hover>i {
+    color: rgb(226, 43, 43);
+  }
+}
+
+.task-ul span {
+  word-break: break-all;
+  flex-grow: 1;
+  margin-inline: 0.5rem;
+  transition: 150ms;
+}
+
+input[type="checkbox"]:checked+span {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+#save_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--btn-bg);
+  font-size: 1rem;
+  padding-block: 0.5rem;
+  padding-inline: 1.4rem;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  margin-block-start: 1rem;
+  box-shadow: 0 2px 10px -5px rgba(0, 0, 0, 0.267);
+
+  &:hover {
+    background-color: var(--btn-hover-bg);
+  }
+}
+
+footer {
+  padding-block: 5rem;
+}
+
+.save-btn-area{
+  position: relative;
+}
+
+#message{
+  position: absolute;
+  top: 50%;
+  left: 115px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background-color: var(--message-bg);
+  color: var(--message-txt-clr);
+  padding-block: 0.3rem;
+  padding-inline: 0.5rem;
+  border-radius: 0.3rem;
+  border: 2px solid var(--message-border-clr);
+  opacity: 1;
+  transition: opacity 200ms;
+  display: none;
+}

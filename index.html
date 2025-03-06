@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="9OQVhck4qd3nXu2yheAXjZWiuJH1c4er0bLx8ErttzE" />
+  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+  <title>Simple TO-DO List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+    integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="./script.js" defer></script>
+</head>
+
+<body id="theme">
+  <button id="toggleThemeBtn">Dark</button>
+
+  <h1>TODO List</h1>
+
+  <p>Add tasks by the <code>'Enter'</code> key or <code>'+'</code> icon.</p>
+  <main class="wrapper">
+
+    <div id="todo_title" contenteditable="true" tabindex="0" class="todo-title" aria-label="Title" spellcheck="false">
+    </div>
+
+    <div class="input-add-section">
+      <input type="text" id="task_input" autocomplete="off" placeholder="Add to list item...">
+      <button id="add_task_btn" title="Add to list"><i class="ri-add-line"></i></button>
+    </div>
+
+    <div class="delete-selected-section">
+      <button onclick="dlt_checked()" title="Delete selected tasks">Delete selected</button>
+      <button id="select_all_btn">Select All</button>
+    </div>
+
+    <ul id="task_ul" class="task-ul">
+      <!-- task items will be added here -->
+    </ul>
+
+    <div class="save-btn-area">
+      <button id="save_btn" title="Save"><i class="ri-check-double-line"></i><span>save</span></button>
+      <span id="message">Task saved</span>
+    </div>
+  </main>
+
+  <P class="terms-info">This to-do app doesn't collect any user data externally. All data are saved in your local
+    storage.
+  </P>
+  <footer></footer>
+
+</body>
+
+</html>

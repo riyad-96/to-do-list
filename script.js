@@ -23,7 +23,7 @@ const saveInputs = () => {
 window.onload = function () {
 
   // getting the saved data in local storage.
-  const savedData = localStorage.getItem('todoTitle') 
+  const savedData = localStorage.getItem('todoTitle')
 
   if (savedData) {
     todo_title.innerHTML = savedData
@@ -189,17 +189,22 @@ save_btn.addEventListener('click', () => {
 //! on save message dialogue
 const message = document.getElementById('message');
 
+let isRunning = false;
 const saveDialogue = () => {
 
-  message.style.display = 'block';
-  message.style.opacity = '1'
-
-  setTimeout(() => {
-    message.style.opacity = '0';
+  if (!isRunning) {
+    isRunning = true
+    message.style.display = 'block';
+    message.style.opacity = '1';
 
     setTimeout(() => {
-      message.style.display = 'none';
-    }, 200);
+      message.style.opacity = '0';
 
-  }, 1500);
+      setTimeout(() => {
+        message.style.display = 'none';
+        isRunning = false;
+      }, 200);
+
+    }, 1500);
+  }
 };
